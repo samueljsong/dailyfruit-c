@@ -1,0 +1,28 @@
+{
+    "loginForm":
+    {
+        "title"            : "Welcome to DailyFruit",
+        "fieldDescription" : "Don't have an account? ",
+        "signup"           : "Sign Up",
+        "email"            : "Email",
+        "password"         : "Password",
+        "login"            : "Login",
+        "appleLogin"       : "Continue with Apple",
+        "googleLogin"      : "Continue with Google",
+        "tos"              : "By clicking continue, you agree to our Terms of Service and Privacy Policy."
+    },
+    "signupForm":
+    {
+        "title"            : "Welcome to DailyFruit",
+        "fieldDescription" : "Already have an account? ",
+        "login"            : "Login",
+        "firstName"        : "FirstName",
+        "lastName"         : "LastName",
+        "email"            : "Email",
+        "password"         : "Password",
+        "signup"           : "Signup",
+        "appleSignup"      : "Continue with Apple",
+        "googleSignup"     : "Continue with Google",
+        "tos"              : "By clicking continue, you agree to our Terms of Service and Privacy"
+    }
+}

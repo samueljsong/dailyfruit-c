@@ -1,3 +1,4 @@
+import { useNavigate } from "react-router-dom";
 import { cn } from "@/lib/utils";
 import { Button } from "@/components/ui/button";
 import {
@@ -11,12 +12,25 @@ import { Input } from "@/components/ui/input";
 
 import logo from "../assets/logo.png";
 
-import { useNavigate } from "react-router-dom";
+import EN from "../locales/en-US.json";
+import KR from "../locales/ko-KR.json";
+import { useEffect, useState } from "react";
 
 export function LoginForm({
     className,
     ...props
 }: React.ComponentProps<"div">) {
+
+    const [ lang, setLang ] = useState(EN);
+
+    useEffect(() => {
+            const userLang = navigator.language;
+            if (userLang.startsWith("ko")) 
+                setLang(KR);
+            else
+                setLang(EN);
+    }, []);
+
     const navigate = useNavigate();
 
     const onFormSubmitHandler = () => {
@@ -31,15 +45,15 @@ export function LoginForm({
                     <div className="flex flex-col items-center gap-2 text-center">
                         <img className=" size-8" src={logo} alt="" />
                         <h1 className="text-xl font-bold">
-                            Welcome to DailyFruit
+                            {lang.loginForm.title}
                         </h1>
                         <FieldDescription>
-                            Don&apos;t have an account?{" "}
-                            <a href="/signup">Sign up</a>
+                            {lang.loginForm.fieldDescription}
+                            <a href="/signup">{lang.loginForm.signup}</a>
                         </FieldDescription>
                     </div>
                     <Field>
-                        <FieldLabel htmlFor="email">Email</FieldLabel>
+                        <FieldLabel htmlFor="email">{lang.loginForm.email}</FieldLabel>
                         <Input
                             id="email"
                             type="email"
@@ -48,7 +62,7 @@ export function LoginForm({
                         />
                     </Field>
                     <Field>
-                        <FieldLabel htmlFor="password">Password</FieldLabel>
+                        <FieldLabel htmlFor="password">{lang.loginForm.password}</FieldLabel>
                         <Input
                             id="password"
                             type="password"
@@ -57,7 +71,7 @@ export function LoginForm({
                         />
                     </Field>
                     <Field>
-                        <Button type="submit">Login</Button>
+                        <Button type="submit">{lang.loginForm.login}</Button>
                     </Field>
                     <FieldSeparator>Or</FieldSeparator>
                     <Field className="grid gap-4 sm:grid-cols-2">
@@ -71,7 +85,7 @@ export function LoginForm({
                                     fill="currentColor"
                                 />
                             </svg>
-                            Continue with Apple
+                            {lang.loginForm.appleLogin}
                         </Button>
                         <Button variant="outline" type="button">
                             <svg
@@ -83,15 +97,13 @@ export function LoginForm({
                                     fill="currentColor"
                                 />
                             </svg>
-                            Continue with Google
+                            {lang.loginForm.googleLogin}
                         </Button>
                     </Field>
                 </FieldGroup>
             </form>
             <FieldDescription className="px-6 text-center">
-                By clicking continue, you agree to our{" "}
-                <a href="#">Terms of Service</a> and{" "}
-                <a href="#">Privacy Policy</a>.
+                {lang.loginForm.tos}
             </FieldDescription>
         </div>
     );

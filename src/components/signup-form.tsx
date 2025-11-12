@@ -13,10 +13,25 @@ import { Input } from "@/components/ui/input";
 // Asset Imports
 import logo from "../assets/logo.png";
 
+import EN from "../locales/en-US.json";
+import KR from "../locales/ko-KR.json";
+import { useEffect, useState } from "react";
+
 export function SignupForm({
     className,
     ...props
 }: React.ComponentProps<"div">) {
+
+    const [ lang, setLang ] = useState(EN);
+    
+    useEffect(() => {
+        const userLang = navigator.language;
+        if (userLang.startsWith("ko")) 
+            setLang(KR);
+        else
+            setLang(EN);
+    }, []);
+
     return (
         <div className={cn("flex flex-col gap-6", className)} {...props}>
             <form>
@@ -24,17 +39,17 @@ export function SignupForm({
                     <div className="flex flex-col items-center gap-2 text-center">
                         <img className=" size-8" src={logo} alt="" />
                         <h1 className="text-xl font-bold">
-                            Welcome to Daily Fruit
+                            {lang.signupForm.title}
                         </h1>
                         <FieldDescription>
-                            Already have an account? <a href="/login">Login</a>
+                            {lang.signupForm.fieldDescription} <a href="/login">{lang.signupForm.login}</a>
                         </FieldDescription>
                     </div>
                     <Field>
                         <div className=" flex flex-row gap-2">
                             <div>
                                 <FieldLabel htmlFor="firstName">
-                                    First Name
+                                    {lang.signupForm.firstName}
                                 </FieldLabel>
                                 <Input
                                     id="firstName"
@@ -45,7 +60,7 @@ export function SignupForm({
                             </div>
                             <div>
                                 <FieldLabel htmlFor="firstName">
-                                    Last Name
+                                    {lang.signupForm.lastName}
                                 </FieldLabel>
                                 <Input
                                     id="lastname"
@@ -57,7 +72,7 @@ export function SignupForm({
                         </div>
                     </Field>
                     <Field>
-                        <FieldLabel htmlFor="email">Email</FieldLabel>
+                        <FieldLabel htmlFor="email">{lang.signupForm.email}</FieldLabel>
                         <Input
                             id="email"
                             type="email"
@@ -66,7 +81,7 @@ export function SignupForm({
                         />
                     </Field>
                     <Field>
-                        <FieldLabel htmlFor="password">Password</FieldLabel>
+                        <FieldLabel htmlFor="password">{lang.signupForm.password}</FieldLabel>
                         <Input
                             id="password"
                             type="password"
@@ -75,7 +90,7 @@ export function SignupForm({
                         />
                     </Field>
                     <Field>
-                        <Button type="submit">Signup</Button>
+                        <Button type="submit">{lang.signupForm.signup}</Button>
                     </Field>
                     <FieldSeparator>Or</FieldSeparator>
                     <Field className="grid gap-4 sm:grid-cols-2">
@@ -89,7 +104,7 @@ export function SignupForm({
                                     fill="currentColor"
                                 />
                             </svg>
-                            Continue with Apple
+                            {lang.signupForm.appleSignup}
                         </Button>
                         <Button variant="outline" type="button">
                             <svg
@@ -101,15 +116,13 @@ export function SignupForm({
                                     fill="currentColor"
                                 />
                             </svg>
-                            Continue with Google
+                            {lang.signupForm.googleSignup}
                         </Button>
                     </Field>
                 </FieldGroup>
             </form>
             <FieldDescription className="px-6 text-center">
-                By clicking continue, you agree to our{" "}
-                <a href="#">Terms of Service</a> and{" "}
-                <a href="#">Privacy Policy</a>.
+                {lang.signupForm.tos}
             </FieldDescription>
         </div>
     );
