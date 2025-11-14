@@ -12,25 +12,14 @@ import { Input } from "@/components/ui/input";
 
 import logo from "../assets/logo.png";
 
-import EN from "../locales/en-US.json";
-import KR from "../locales/ko-KR.json";
-import { useEffect, useState } from "react";
+import { useLanguage } from "@/context/LanguageContext";
 
 export function LoginForm({
     className,
     ...props
 }: React.ComponentProps<"div">) {
 
-    const [ lang, setLang ] = useState(EN);
-
-    useEffect(() => {
-            const userLang = navigator.language;
-            if (userLang.startsWith("ko")) 
-                setLang(KR);
-            else
-                setLang(EN);
-    }, []);
-
+    const lang     = useLanguage();
     const navigate = useNavigate();
 
     const onFormSubmitHandler = () => {

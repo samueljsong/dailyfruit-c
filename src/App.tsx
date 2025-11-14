@@ -9,14 +9,19 @@ import { LoginPage }  from "./pages/LoginPage";
 import { SignupPage } from "./pages/SignupPage";
 import { HomePage }   from "./pages/HomePage";
 
+// Context Imports
+import { LanguageProvider } from "./context/LanguageContext";
+
 function App() {
     return (
         <>
-            <Routes>
-                <Route path="/login"  element={<LoginPage />}  />
-                <Route path="/signup" element={<SignupPage />} />
-                <Route path="/home"   element={<HomePage />}   />
-            </Routes>
+            <LanguageProvider>
+                <Routes>
+                    <Route path="/"       element={<HomePage />}   />
+                    <Route path="/login"  element={<LoginPage />}  />
+                    <Route path="/signup" element={<SignupPage />} />
+                </Routes>
+            </LanguageProvider>
         </>
     );
 }

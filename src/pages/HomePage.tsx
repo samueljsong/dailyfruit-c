@@ -1,3 +1,10 @@
+import { NoGroupComponent } from "@/components/NoGroupComponent";
+
+
 export const HomePage = () => {
-    return <h1>Welcome to the homepage</h1>;
+    return (
+        <div>
+            <NoGroupComponent />
+        </div>
+    )
 };

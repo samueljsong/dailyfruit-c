@@ -24,5 +24,12 @@
         "appleSignup"      : "Continue with Apple",
         "googleSignup"     : "Continue with Google",
         "tos"              : "By clicking continue, you agree to our Terms of Service and Privacy"
+    },
+    "noGroupComponent": 
+    {
+        "emptyTitle"        : "No Groups Available",
+        "emptyDescription"  : "You are not part of any group yet. Get started by creating or joining an existing group.",
+        "createGroupButton" : "Create Group",
+        "joinGroupButton"   : "Join Group"
     }
 }

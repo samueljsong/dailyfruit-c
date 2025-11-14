@@ -24,5 +24,12 @@
         "appleSignup"      : "Apple로 계속하기",
         "googleSignup"     : "Google로 계속하기",
         "tos"              : "계속을 클릭하면 서비스 약관 및 개인정보 처리방침에 동의하게 됩니다."
+    },
+    "noGroupComponent": 
+    {
+        "emptyTitle"        : "사용 가능한 그룹이 없습니다",
+        "emptyDescription"  : "아직 어떤 그룹에도 속해 있지 않습니다. 새 그룹을 만들거나 기존 그룹에 참여하여 시작하세요.",
+        "createGroupButton" : "그룹 만들기",
+        "joinGroupButton"   : "그룹 참여"
     }
 }
