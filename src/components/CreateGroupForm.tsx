@@ -8,7 +8,6 @@ import {
     FieldDescription,
     FieldGroup,
     FieldLabel,
-    FieldSeparator,
 } from "@/components/ui/field";
 
 export const CreateGroupForm = () => {
@@ -51,6 +50,7 @@ export const CreateGroupForm = () => {
                     <Textarea className=" h-30" required id="groupDescription" placeholder="This group "/>
                 </Field>
             </FieldGroup>
+            <Button>Create Group</Button>
         </form>
     )
 }
