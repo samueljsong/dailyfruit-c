@@ -24,10 +24,14 @@ export function NavMenu() {
     return (
         <div className=" flex flex-row justify-between w-[80%] py-3">
             <img className=" size-8 cursor-pointer" src={logo} alt="" onClick={onLogoClickhandler}/>
-            <NavigationMenu viewport={false}>
+            <NavigationMenu 
+                viewport={false}
+            >
                 <NavigationMenuList className="flex-wrap">
                     <NavigationMenuItem className="hidden md:block">
-                        <NavigationMenuTrigger>Group</NavigationMenuTrigger>
+                        <NavigationMenuTrigger>
+                            Group
+                        </NavigationMenuTrigger>
                         <NavigationMenuContent>
                             <ul className="grid w-[200px] gap-4">
                                 <li>

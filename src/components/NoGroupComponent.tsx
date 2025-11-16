@@ -35,10 +35,10 @@ export const NoGroupComponent = () => {
             </EmptyHeader>
             <EmptyContent>
                 <div className="flex gap-2">
-                    <Button onClick={onCreateGroupButtonClickHandler}>
+                    <Button className=" cursor-pointer" onClick={onCreateGroupButtonClickHandler}>
                         {lang.noGroupComponent.createGroupButton}
                     </Button>
-                    <Button onClick={onJoinGroupButtonClickHandler} variant="outline">
+                    <Button className=" cursor-pointer" onClick={onJoinGroupButtonClickHandler} variant="outline">
                         {lang.noGroupComponent.joinGroupButton}
                     </Button>
                 </div>
