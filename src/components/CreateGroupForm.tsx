@@ -18,7 +18,7 @@ import { useLanguage } from "@/context/LanguageContext";
 export const CreateGroupForm = () => {
 
     const navigate = useNavigate();
-    const lang     = useLanguage();
+    // const lang     = useLanguage();
 
     const groupNameLimit        = 50;
     const groupPasswordLimit    = 30;
