@@ -13,12 +13,12 @@ import {
 
 import { util } from '../utils/UtilFunctions'
 import { useNavigate } from "react-router-dom";
-// import { useLanguage } from "@/context/LanguageContext";
+import { useLanguage } from "@/context/LanguageContext";
 
 export const CreateGroupForm = () => {
 
     const navigate = useNavigate();
-    // const lang     = useLanguage();
+    const lang     = useLanguage();
 
     const groupNameLimit        = 50;
     const groupPasswordLimit    = 30;
@@ -60,20 +60,19 @@ export const CreateGroupForm = () => {
         <form action="" className=" flex flex-col gap-4 max-w-160 min-w-80 w-[80%] md:w-[60%] lg:w-[40%]">
             <FieldGroup>
                 <div>
-                    <h1 className=" text-2xl font-bold">Create Group</h1>
+                    <h1 className=" text-2xl font-bold">{lang.createGroupForm.title}</h1>
                     <FieldDescription>
-                        * Fields must be filled to create the group.
+                        {lang.createGroupForm.notice}
                     </FieldDescription>
                 </div>
                 <Field>
-                    <FieldLabel htmlFor="groupName">Group Name *</FieldLabel>
+                    <FieldLabel htmlFor="groupName">{lang.createGroupForm.groupName} *</FieldLabel>
                         <FieldDescription>
-                            This will be what users will type in to find your specific group
+                            {lang.createGroupForm.groupNameDescription}
                         </FieldDescription>
                     <Input 
                         id="groupName"
                         type="text"
-                        placeholder="The Best Group"
                         required
                         onInput={onGroupNameInputHandler}
                     />
@@ -82,14 +81,13 @@ export const CreateGroupForm = () => {
                     </FieldDescription>
                 </Field>
                 <Field>
-                    <FieldLabel htmlFor="groupPassword">Group Password *</FieldLabel>
+                    <FieldLabel htmlFor="groupPassword">{lang.createGroupForm.groupPassword} *</FieldLabel>
                         <FieldDescription>
-                            This is what people will have to enter to join your group
+                            {lang.createGroupForm.groupPasswordDescription}
                         </FieldDescription>
                     <Input 
                         id="groupPassword"
                         type="password"
-                        placeholder="**********"
                         required
                         onInput={onGroupPasswordInputHandler}
                     />
@@ -98,14 +96,13 @@ export const CreateGroupForm = () => {
                     </FieldDescription>
                 </Field>
                 <Field>
-                    <FieldLabel htmlFor="groupDescription">Description</FieldLabel>
+                    <FieldLabel htmlFor="groupDescription">{lang.createGroupForm.groupDescription}</FieldLabel>
                         <FieldDescription>
-                            Create a short description regarding what this group is about
+                            {lang.createGroupForm.description}
                         </FieldDescription>
                     <Textarea 
                         className=" h-30 resize-none" 
                         id="groupDescription" 
-                        placeholder="This group "
                         onInput={onDescriptionInputHandler}
                     />
                     <FieldDescription className={groupDescription.length >= groupDescriptionLimit ? " text-red-500" : ""}>
@@ -113,7 +110,7 @@ export const CreateGroupForm = () => {
                     </FieldDescription>
                 </Field>
             </FieldGroup>
-            <Button onClick={onCreateGroupButtonClickHandler} className=" cursor-pointer">Create Group</Button>
+            <Button onClick={onCreateGroupButtonClickHandler} className=" cursor-pointer">{lang.createGroupForm.title}</Button>
         </form>
     )
 }
