@@ -24,7 +24,7 @@ export function LoginForm({
 
     const onFormSubmitHandler = () => {
         //TODO: Implement login logic
-        navigate("/home");
+        navigate("/");
     };
 
     return (

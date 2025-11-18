@@ -62,7 +62,7 @@ export const CreateGroupForm = () => {
                 <div>
                     <h1 className=" text-2xl font-bold">Create Group</h1>
                     <FieldDescription>
-                        Fields with the * must be filled to create the group.
+                        * Fields must be filled to create the group.
                     </FieldDescription>
                 </div>
                 <Field>
