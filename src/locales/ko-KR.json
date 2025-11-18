@@ -31,5 +31,16 @@
         "emptyDescription"  : "아직 어떤 그룹에도 속해 있지 않습니다. 새 그룹을 만들거나 기존 그룹에 참여하여 시작하세요.",
         "createGroupButton" : "그룹 만들기",
         "joinGroupButton"   : "그룹 참여"
+    },
+    "createGroupForm":
+    {
+        "title"                    : "그룹 만들기",
+        "notice"                   : "* 표시된 필드는 그룹을 생성하기 위해 반드시 입력해야 합니다",
+        "groupName"                : "그룹 이름",
+        "groupNameDescription"     : "사용자들이 특정 그룹을 찾기 위해 입력하는 이름입니다",
+        "groupPassword"            : "그룹 비밀번호",
+        "groupPasswordDescription" : "사용자들이 그룹에 가입하기 위해 입력해야 하는 비밀번호입니다",
+        "groupDescription"         : "그룹 설명",
+        "description"              : "그룹이 어떤 곳인지에 대한 간단한 설명을 작성하세요"
     }
 }

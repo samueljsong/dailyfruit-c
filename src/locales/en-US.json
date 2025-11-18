@@ -31,5 +31,16 @@
         "emptyDescription"  : "You are not part of any group yet. Get started by creating or joining an existing group.",
         "createGroupButton" : "Create Group",
         "joinGroupButton"   : "Join Group"
+    },
+    "createGroupForm":
+    {
+        "title"                    : "Create Group",
+        "notice"                   : "* Fields must be all filled out to create a group",
+        "groupName"                : "Group Name",
+        "groupNameDescription"     : "This is what users will type to search for your specific group",
+        "groupPassword"            : "Group Password",
+        "groupPasswordDescription" : "This is the password users will have to enter to join your group",
+        "groupDescription"         : "Description",
+        "description"              : "Create a short description regarding what your group is about"
     }
 }
