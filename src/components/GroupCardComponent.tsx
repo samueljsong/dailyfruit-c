@@ -12,9 +12,9 @@ import { JoinGroupDialogComponent } from "./JoinGroupDialogComponent"
 
 export const GroupCardComponent = () => {
 
-    const onJoinGroupClickHandler = () => {
+    // const onJoinGroupClickHandler = () => {
 
-    }
+    // }
 
     return(
         <Card className="w-full min-h-">
