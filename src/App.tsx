@@ -10,6 +10,7 @@ import { SignupPage }      from "./pages/SignupPage";
 import { HomePage }        from "./pages/HomePage";
 import { CreateGroupPage } from "./pages/CreateGroupPage";
 import { JoinGroupPage }   from "./pages/JoinGroupPage";
+import { Toaster }         from "./components/ui/sonner";
 
 // Context Imports
 import { LanguageProvider } from "./context/LanguageContext";
@@ -25,6 +26,7 @@ function App() {
                     <Route path="/createGroup" element={<CreateGroupPage/>} />
                     <Route path="/joinGroup"   element={<JoinGroupPage/>}   />
                 </Routes>
+                <Toaster position="top-center"/>
             </LanguageProvider>
         </>
     );
