@@ -14,6 +14,7 @@ import {
 import { util } from '../utils/UtilFunctions'
 import { useNavigate } from "react-router-dom";
 import { useLanguage } from "@/context/LanguageContext";
+import { toast } from "sonner";
 
 export const CreateGroupForm = () => {
 
@@ -46,12 +47,14 @@ export const CreateGroupForm = () => {
     const onCreateGroupButtonClickHandler = () => {
         if (util.isWordWithinLimit(groupName, groupNameLimit) && util.isWordWithinLimit(groupPassword, groupPasswordLimit) && util.isWordWithinLimit(groupDescription, groupDescriptionLimit))
         {
-            //API call here and navigate
+            //API call here and navigate try catch around it
             //Alert that the group has been made successfully
+            toast.success("Successfully created group")
             navigate("/") // temporary
         }
         else
         {
+            toast.error("Something went wrong when creating the group")
             // Alert one of the field is too long.
         }
     }

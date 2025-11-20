@@ -6,7 +6,7 @@ import { ScrollArea }from "@/components/ui/scroll-area";
 export const JoinGroupSearchComponent = () => {
 
     return(
-        <div className=" flex flex-col h-[80vh] gap-6 max-w-160 min-w-80 w-[80%] md:w-[60%] lg:w-[40%]">
+        <div className=" flex flex-col h-[80vh] gap-6 max-w-160 min-w-80 w-[90%] md:w-[60%] lg:w-[40%]">
             <div className=" flex flex-col gap-2">
                 <div>
                     <h1 className=" text-2xl font-bold">Join Group</h1>
