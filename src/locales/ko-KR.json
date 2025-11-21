@@ -42,5 +42,21 @@
         "groupPasswordDescription" : "사용자들이 그룹에 가입하기 위해 입력해야 하는 비밀번호입니다",
         "groupDescription"         : "그룹 설명",
         "description"              : "그룹이 어떤 곳인지에 대한 간단한 설명을 작성하세요"
+    },
+    "joinGroupSearchComponent":
+    {
+        "title"            : "그룹 참여",
+        "searchText"       : "가입하고 싶은 기존 그룹을 검색하세요",
+        "searchResultText" : "검색 결과..."
+    },
+    "joinGroupDialogComponent":
+    {
+        "title"             : "그룹 참여",
+        "dialogTitle"       : "참여 중: ",
+        "dialogDescription" : "가입하려면 그룹 비밀번호를 입력하세요.",
+        "label"             : "그룹 비밀번호",
+        "buttonText"        : "그룹 참여",
+        "success"           : "그룹에 성공적으로 참여했습니다!",
+        "error"             : "입력하신 비밀번호가 올바르지 않습니다..."
     }
 }

@@ -42,5 +42,21 @@
         "groupPasswordDescription" : "This is the password users will have to enter to join your group",
         "groupDescription"         : "Description",
         "description"              : "Create a short description regarding what your group is about"
+    },
+    "joinGroupSearchComponent":
+    {
+        "title"            : "Join Group",
+        "searchText"       : "Search for an existing group that you want to join",
+        "searchResultText" : "Search Results..."
+    },
+    "joinGroupDialogComponent":
+    {
+        "title"             : "Join Group",
+        "dialogTitle"       : "Joining ",
+        "dialogDescription" : "Please enter the group password to join.",
+        "label"             : "Group Password",
+        "buttonText"        : "Join Group",
+        "success"           : "Successfully Joined Group!",
+        "error"             : "The entered password is incorrect..."
     }
 }

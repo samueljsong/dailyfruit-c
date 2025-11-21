@@ -13,10 +13,12 @@ import { Label }       from "./ui/label";
 import { toast }       from "sonner";
 import { useState }    from "react";
 import { useNavigate } from "react-router-dom";
+import { useLanguage } from "@/context/LanguageContext";
 
 export const JoinGroupDialogComponent = () => {
 
     const navigate = useNavigate();
+    const lang     = useLanguage();
 
     const [password, setPassword] = useState("");
 
@@ -32,29 +34,29 @@ export const JoinGroupDialogComponent = () => {
     }
 
     const onJoinGroupSuccessHandler = () => {
-        toast.success("Successfully Joined Group")
+        toast.success(lang.joinGroupDialogComponent.success)
         navigate("/");
     }
 
     const onJoinGroupErrorHandler = () => {
-        toast.error("Wrong password... Please try again")
+        toast.error(lang.joinGroupDialogComponent.error)
     }
 
     return(
         <Dialog>
             <DialogTrigger asChild>
-                <Button className=" cursor-pointer">Join Group</Button>
+                <Button className=" cursor-pointer">{lang.joinGroupDialogComponent.title}</Button>
             </DialogTrigger>
             <form>
                 <DialogContent>
                     <DialogHeader>
-                    <DialogTitle>Joining "Enter group name"</DialogTitle>
+                    <DialogTitle>{lang.joinGroupDialogComponent.dialogTitle}</DialogTitle>
                     <DialogDescription>
-                        Please enter the group password provided by the owner to join.
+                        {lang.joinGroupDialogComponent.dialogDescription}
                     </DialogDescription>
                     </DialogHeader>
                      <div className=" flex flex-col gap-4">
-                        <Label htmlFor="">Group Password</Label>
+                        <Label htmlFor="">{lang.joinGroupDialogComponent.label}</Label>
                         <Input
                             type="password"
                             required
@@ -65,7 +67,7 @@ export const JoinGroupDialogComponent = () => {
                         className=" cursor-pointer" 
                         onClick={onJoinGroupFormSubmitHandler}
                     >
-                        Join Group
+                        {lang.joinGroupDialogComponent.buttonText}
                     </Button>
                 </DialogContent>
             </form>
