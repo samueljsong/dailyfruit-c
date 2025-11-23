@@ -1,5 +1,15 @@
 // Library Imports
-import { cn } from "@/lib/utils";
+import { cn }          from "@/lib/utils";
+import { useLanguage } from "@/context/LanguageContext";
+import { useNavigate } from "react-router-dom";
+import { useState }    from "react";
+
+import { UserService } from "@/services/UserService";
+
+// Asset Imports
+import logo from "../assets/logo.png";
+
+// Component Imports
 import { Button } from "@/components/ui/button";
 import {
     Field,
@@ -7,24 +17,46 @@ import {
     FieldGroup,
     FieldLabel,
     FieldSeparator,
-} from "@/components/ui/field";
-import { Input } from "@/components/ui/input";
-
-// Asset Imports
-import logo from "../assets/logo.png";
-
-import { useLanguage } from "@/context/LanguageContext";
+}                 from "@/components/ui/field";
+import { Input }  from "@/components/ui/input";
+import { toast }  from "sonner";
 
 export function SignupForm({
     className,
     ...props
 }: React.ComponentProps<"div">) {
 
-    const lang = useLanguage();
+    const navigate = useNavigate();
+    const lang     = useLanguage();
+
+    const [ firstName, setFirstName ] = useState("");
+    const [ lastName , setLastName  ] = useState("");
+    const [ email    , setEmail     ] = useState("");
+    const [ password , setPassword  ] = useState("");
+
+    const onFirstNameInputChangeHandler = (e: React.ChangeEvent<HTMLInputElement>) => setFirstName(e.currentTarget.value);
+    const onLastnameInputChnageHandler  = (e: React.ChangeEvent<HTMLInputElement>) => setLastName(e.currentTarget.value);
+    const onEmailInputChangeHandler     = (e: React.ChangeEvent<HTMLInputElement>) => setEmail(e.currentTarget.value);
+    const onPasswordInputChangeHandler  = (e: React.ChangeEvent<HTMLInputElement>) => setPassword(e.currentTarget.value);
+
+    const onFormSubmitHandler = (e: React.FormEvent<HTMLFormElement>) => {
+        e.preventDefault();
+        UserService.createUser
+        (
+            {
+                "FirstName" : firstName,
+                "Lastname"  : lastName,
+                "Email"     : email,
+                "Password"  : password
+            },
+            navigate,
+            toast
+        );
+    }
 
     return (
         <div className={cn("flex flex-col gap-6", className)} {...props}>
-            <form>
+            <form onSubmit={onFormSubmitHandler}>
                 <FieldGroup>
                     <div className="flex flex-col items-center gap-2 text-center">
                         <img className=" size-8" src={logo} alt="" />
@@ -39,13 +71,14 @@ export function SignupForm({
                         <div className=" flex flex-row gap-2">
                             <div>
                                 <FieldLabel htmlFor="firstName">
-                                    {lang.signupForm.firstName}
+                                    {lang.signupForm.firstName}s
                                 </FieldLabel>
                                 <Input
                                     id="firstName"
                                     type="text"
                                     placeholder="John"
                                     required
+                                    onChange={onFirstNameInputChangeHandler}
                                 />
                             </div>
                             <div>
@@ -57,6 +90,7 @@ export function SignupForm({
                                     type="text"
                                     placeholder="Doe"
                                     required
+                                    onChange={onLastnameInputChnageHandler}
                                 />
                             </div>
                         </div>
@@ -68,6 +102,7 @@ export function SignupForm({
                             type="email"
                             placeholder="m@example.com"
                             required
+                            onChange={onEmailInputChangeHandler}
                         />
                     </Field>
                     <Field>
@@ -77,6 +112,7 @@ export function SignupForm({
                             type="password"
                             placeholder="**********"
                             required
+                            onChange={onPasswordInputChangeHandler}
                         />
                     </Field>
                     <Field>

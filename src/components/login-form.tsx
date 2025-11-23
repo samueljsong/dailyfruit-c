@@ -1,5 +1,11 @@
+// Library Imports
+import { cn }          from "@/lib/utils";
+import { useLanguage } from "@/context/LanguageContext";
 import { useNavigate } from "react-router-dom";
-import { cn } from "@/lib/utils";
+import { UserService } from "@/services/UserService";
+import { useState }    from "react";
+
+// Component Imports
 import { Button } from "@/components/ui/button";
 import {
     Field,
@@ -8,11 +14,12 @@ import {
     FieldLabel,
     FieldSeparator,
 } from "@/components/ui/field";
-import { Input } from "@/components/ui/input";
+import { Input }  from "@/components/ui/input";
+import { toast }  from "sonner";
 
+// Asset Imports
 import logo from "../assets/logo.png";
 
-import { useLanguage } from "@/context/LanguageContext";
 
 export function LoginForm({
     className,
@@ -22,9 +29,23 @@ export function LoginForm({
     const lang     = useLanguage();
     const navigate = useNavigate();
 
-    const onFormSubmitHandler = () => {
-        //TODO: Implement login logic
-        navigate("/");
+    const [ email, setEmail       ] = useState("");
+    const [ password, setPassword ] = useState("");
+
+    const onEmailInputChangeHandler    = (e: React.ChangeEvent<HTMLInputElement>) => setEmail(e.currentTarget.value);
+    const onPasswordInputChangeHandler = (e: React.ChangeEvent<HTMLInputElement>) => setPassword(e.currentTarget.value);
+
+    const onFormSubmitHandler = (e: React.FormEvent<HTMLFormElement>) => {
+        e.preventDefault();
+        UserService.loginUser
+        (
+            {
+                "Email"    : email,
+                "Password" : password
+            },
+            navigate,
+            toast
+        )
     };
 
     return (
@@ -48,6 +69,7 @@ export function LoginForm({
                             type="email"
                             placeholder="m@example.com"
                             required
+                            onChange={onEmailInputChangeHandler}
                         />
                     </Field>
                     <Field>
@@ -57,6 +79,7 @@ export function LoginForm({
                             type="password"
                             placeholder="**********"
                             required
+                            onChange={onPasswordInputChangeHandler}
                         />
                     </Field>
                     <Field>
