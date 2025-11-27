@@ -18,8 +18,8 @@ export const ProgressTrackerComponent = () => {
                 <span className="row-start-4">Wed</span>
                 <span className="row-start-6">Fri</span>
             </div>
-            <ScrollArea className=" w-full" ref={scrollRef}>
-                <div className=" flex gap-1 w-full min-w-max overflow-x-auto">
+            <ScrollArea className=" w-[88%] sm:w-[88%] md:w-[93%]" ref={scrollRef}>
+                <div className=" flex gap-1 w-full min-w-max">
                     <div className=" flex flex-col">
                         <div className="flex justify-between text-xs text-muted-foreground">
                             <span>Jan</span>
