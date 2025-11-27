@@ -1,5 +1,5 @@
 
-export const CalendarBoxComponent = () => {
+export const ProgressTrackerComponent = () => {
     return(
         <div>
             

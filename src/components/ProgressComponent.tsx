@@ -17,7 +17,7 @@ import {
 import { Button } from "./ui/button"
 import { Progress } from "./ui/progress"
 import { Separator } from "./ui/separator"
-import { CalendarBoxComponent } from "./CalendarBoxComponent"
+import { ProgressTrackerComponent } from "./ProgressTracker/ProgressTrackerComponent"
 
 export const ProgressComponent = () => {
 
@@ -44,7 +44,7 @@ export const ProgressComponent = () => {
                     <AccordionItem value="item-1">
                         <AccordionTrigger>Morning Devotion</AccordionTrigger>
                         <AccordionContent className=" flex flex-col">
-                            <CalendarBoxComponent/>
+                            <ProgressTrackerComponent/>
                         </AccordionContent>
                     </AccordionItem>
                 </Accordion>
