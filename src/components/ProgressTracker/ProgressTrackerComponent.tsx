@@ -34,6 +34,7 @@ export const ProgressTrackerComponent = () => {
                             <span>Oct</span>
                             <span>Nov</span>
                             <span>Dec</span>
+                            {/**Fix so it gets the date dynamically */}
                         </div>
                         <div className=" grid grid-flow-col grid-rows-7 gap-0.5 pb-4">
                             {[...Array(365)].map((_, i) => (
